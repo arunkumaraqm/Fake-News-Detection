@@ -22,5 +22,13 @@
 		<div class="right"><input type="submit" class="button button1"><input type="reset" class="button button1"></div>
 	</form>
 </div>
+<div class="loader-wrapper">
+	<span class="loader"><span class="loader-inner"></span></span>
+</div>
+<script>
+        $(window).on("load",function(){
+        $(".loader-wrapper").fadeOut("slow");
+        });
+</script>
 </body>
 </html>
