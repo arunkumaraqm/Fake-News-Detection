@@ -1,14 +1,17 @@
-# Fake-News-Detection
+# Fake News Detection
 Minor Project
 
 # Instructions
-For the Jupyter Notebook
+## Jupyter Notebook
 - Install numpy, pandas, scikit-learn, nltk using conda.
-- Download the dataset from [here](https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset). It's ~40 MB compressed.
-- Unzip and extract to folder named 'kaggle-fn-dataset' within the root directory of the repo.
+- Download the dataset from [here](https://github.com/payamesfandiari/fake_news_finder/tree/master/data/processed). It's ~70 MB.
+- Unzip and extract to folder named 'data-payames' within the root directory of the repo. Rename the file as 'data-payames.csv'
 
-#Web Interface
-- make sure Django framework is installed on the system.
+## Data Collection
+- Install newspaper3k, pytz using pip.
+
+## Web Interface
+- Install Django.
 - Go to Fake-News-Detection/files/fakenews directory.
-- run command in shell "python manage.py runserver".
+- Run command in shell "python manage.py runserver".
 - Copy the address from the terminal that will be displayed and paste in browser.
