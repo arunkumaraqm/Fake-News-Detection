@@ -1,14 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+import joblib
+import os
+from . import scraper
+
+
+root_path = os.path.join('..', '..')
+path = os.path.join(root_path, 'model.joblib') 
+model = joblib.load(path)
+
 def evaluate_url(url):
-	from . import scraper
 	article_data = scraper.scrape(url)
-	import joblib
-	import os
-	root_path = os.path.join('..', '..')
-	path = os.path.join(root_path, 'model.joblib') 
-	model = joblib.load(path)
+	print(url, article_data)
+	if article_data == {}:
+		return "UNABLE TO COLLECT ARTICLE"
+
 	res = model.predict([article_data['text']])
 	if res == 1:
 		return "TRUE"
@@ -17,7 +24,10 @@ def evaluate_url(url):
 
 def index(request):
 	if request.method == 'POST':
-		url = request.POST['link'][0]
+		print(request.POST['link'])
+		url = request.POST['link']
 		result = evaluate_url(url)
-	else: result = None
-	return render(request, 'index.html', {'result': result})
+	else: 
+		result = None
+		url = ""
+	return render(request, 'index.html', {'result': result, 'given_url': url})
