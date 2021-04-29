@@ -99,15 +99,15 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 30px;
   margin: 4px 4px;
   transition-duration: 0.4s;
   cursor: pointer;
   font-family: 'Times New Roman', serif;
   /*background-color: rgba(255, 255, 255, 0.5); */
   /*color: white; */
-  border: 2px solid #ffa31a;
-  background-color: #ffa31a;
+  border: 2px solid #707070;
+  background-color: #707070;
   color: white;
 }
 
