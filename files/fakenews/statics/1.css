@@ -67,7 +67,7 @@ body {
 
 .right {
   position: absolute;
-  right: 43%;
+  right: 42.5%;
 
 }
 
@@ -95,19 +95,19 @@ body {
 }
 
 .text-box {
-  padding: 16px 32px;
+  padding: 1px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
-  margin: 4px 5px;
+  margin: 4px 4px;
   transition-duration: 0.4s;
   cursor: pointer;
   font-family: 'Times New Roman', serif;
   /*background-color: rgba(255, 255, 255, 0.5); */
   /*color: white; */
-  border: 2px solid #795011;
-  background-color: #795011;
+  border: 2px solid #ffa31a;
+  background-color: #ffa31a;
   color: white;
 }
 
