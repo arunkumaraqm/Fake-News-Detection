@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<!doctype html>
-	<title>Fake NEWS Detector</title>
+	<title>Fake News Detector</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	{% load static%}
@@ -20,12 +20,18 @@
 	</header>
 
 	<div class="box ctr">
-		<form id="post-form">
+		<form method="post" id="post-form">
 			{% csrf_token %}
-			<input type="text" name="link" value="" required class="search-box" autofocus="" id="link" size="50" placeholder="Paste the Link of NEWS Here">
-			<div class="right"><input type="submit" class="button button1"><input type="reset" class="button button1">
+			<input type="text" name="link" value="" required class="search-box" autofocus="" id="link" size="50" placeholder="Paste the URL of the Article Here">
+			<div class="right"><input type="submit" class="button button1"><input type="reset" class="button button1" onclick="window.location='{% url 'index' %}' ; return false;">
 			</div>
 		</form>
+
+		{% if result %}
+			<div class="text-box">
+				<p>{{ result }}</p>
+			</div>
+		{% endif %}
 	</div>
 
 </body>

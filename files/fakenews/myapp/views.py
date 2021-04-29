@@ -1,15 +1,23 @@
 from django.shortcuts import render
-import uuid
-from .models import Urls
 from django.http import HttpResponse
 
-def index(request):
-    return render(request, 'index.html')
+def evaluate_url(url):
+	from . import scraper
+	article_data = scraper.scrape(url)
+	import joblib
+	import os
+	root_path = os.path.join('..', '..')
+	path = os.path.join(root_path, 'model.joblib') 
+	model = joblib.load(path)
+	res = model.predict([article_data['text']])
+	if res == 1:
+		return "TRUE"
+	else:
+		return "FAKE"
 
-def create(request):
-    if request.method == 'POST':
-        url = request.POST['link']
-        uid = str(uuid.uuid4())[:5]
-        new_url = Urls(link=url,uuid=uid)
-        new_url.save()
-        return HttpResponse(uid)
+def index(request):
+	if request.method == 'POST':
+		url = request.POST['link'][0]
+		result = evaluate_url(url)
+	else: result = None
+	return render(request, 'index.html', {'result': result})
