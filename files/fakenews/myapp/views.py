@@ -31,3 +31,7 @@ def index(request):
 		result = None
 		url = ""
 	return render(request, 'index.html', {'result': result, 'given_url': url})
+
+def about(request):
+	return render(request, 'about.html')
+	
